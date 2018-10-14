@@ -1,6 +1,7 @@
 'use strict';
 
 // global vars
+var ctx = document.getElementById('productChart').getContext('2d');
 var productOptionLeft = document.getElementById ('leftProduct');
 var productOptionMiddle = document.getElementById ('middleProduct');
 var productOptionRight = document.getElementById ('rightProduct');
@@ -95,16 +96,66 @@ var counter = function () {
   if (productCounter > 24) {
     productSelection.removeEventListener ('click', productClickHandler);
 
-    var productForm = document.getElementById ('productList');
-    for (var i =0; i < allProductImages.length; i++) {
-      var productLiEl = document.createElement('li');
-      var liResult = (allProductImages[i].name + ' was liked ' + allProductImages[i].likes + ' times.');
-      productLiEl.textContent = liResult;
-      productForm.appendChild(productLiEl);
-    }
+    // var productForm = document.getElementById ('productList');
+    // for (var i =0; i < allProductImages.length; i++) {
+    //   var productLiEl = document.createElement('li');
+    //   var liResult = (allProductImages[i].name + ' was liked ' + allProductImages[i].likes + ' times.');
+    //   productLiEl.textContent = liResult;
+    //   productForm.appendChild(productLiEl);
 
-
+    // }
+    renderGraph();
   }
+};
+
+// ___render Graphs___
+var renderGraph = function (){
+  var productLikes = [];
+  var productNames = [];
+  var graphColors = [];
+
+  for (var i in allProductImages) {
+    // allProductImages[i].name.push(productNames);
+    // allProductImages[i].likes.push(productLikes);
+    productNames.push(allProductImages[i].name);
+    productLikes.push(allProductImages[i].likes);
+    graphColors.push('rgba(255,99,132,1');
+    console.log(productNames, productLikes);
+  }
+
+
+  var productData = {
+    labels: productNames,
+    datasets: [{
+      label: 'Number of likes',
+      data: productLikes,
+      backgroundColor: graphColors,
+      borderColor: graphColors,
+      borderwidth: 1,
+    }]
+  };
+
+  var graphOptions = {
+    scales: {
+      yAxes: [{
+        ticks: {
+          beginAtZero: true,
+        }
+      }]
+    },
+    animation: {
+      duration: 1000,
+      easing: 'easeinCirc',
+    },
+    responsive: true,
+  };
+
+  var productBar = {
+    type: 'horizontalBar',
+    data: productData,
+    options: graphOptions,
+  };
+  var productChart = new Chart(ctx, productBar);
 };
 
 
@@ -128,7 +179,3 @@ new ProductImage ('IMG/unicorn.jpg', 'unicorn meat');
 new ProductImage ('IMG/usb.gif', 'tentacle usb');
 new ProductImage ('IMG/water-can.jpg', 'self-watering can');
 new ProductImage ('IMG/wine-glass.jpg', 'wine glass');
-
-console.log(allProductImages);
-
-
