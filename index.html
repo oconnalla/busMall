@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Bus Mall</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
+    <link rel= "reset" href= "reset.css">
+    <link rel= "stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li> <a href="#">Home</a></li>
+                <li> <a href="#">Our products</a></li>
+            </ul>
+        </nav>
+    </header>
+    <h1 id="openingBanner"> Welcome To Bus Mall</h1>
+    <main>
+        <section id= "selectChoice">
+            <h1 id= "pleaseChoose">Please choose from our selection of available products</h1>
+                <div> 
+                    <img id="leftProduct" data-index = "0" class = "photoResizing" src="IMG/bag.jpg">
+                    <h2 id="ProductOneText">Nerdy Luggage</h2>
+                </div>
+                <div> 
+                    <img id="middleProduct" data-index = "1" class = "photoResizing" src="IMG/banana.jpg">
+                    <h2 id="ProductTwoText">Banana Cutter</h2>
+                </div>
+                <div> 
+                        <img id="rightProduct" data-index = "2"  class = "photoResizing" src="IMG/bathroom.jpg">
+                        <h2 id="ProductThreeText">Bathroom Reader</h2>
+                    </div>
+        </section> 
+        <canvas id="productChart"></canvas>
+    </main>
+    <ul id="productList"></ul>  
+    <script type="text/javascript" src="./main.js"></script>
+</body>
+</html>
