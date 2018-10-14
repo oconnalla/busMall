@@ -1,5 +1,54 @@
+body{
+    width: 960px;
+    background-image: url("busMallBackground.jpg");
+    background-position: center;
+    opacity: .8;
+
+}
+nav  li {
+    float: left;
+    list-style-type: none;
+}
+nav li a {
+    display: block;
+    height: 10px;
+    padding: 12px 18px 8px 18px;
+    vertical-align: middle;
+    color: grey;
+    font-family: 'Cinzel', serif;
+    font-size: 30px;
+}
+#openingBanner {
+text-align: center;
+margin-bottom: 30px;
+font-size: 50px;
+font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+#pleaseChoose{
+    margin-top: 30px;
+    text-align: left;
+    font-family: sans-serif;
+}
+    
 #leftProduct, #middleProduct, #rightProduct {
     height: 250px;
     width: 200px;
+    float: left; 
+}
+
+div {
     float: left;
+    margin: 40px;
+    border: solid lightgrey 10px;
+    background-color: white;
+    text-align: center;
+    border-radius: 10%;
+    opacity: .9;
+}
+
+#productList {
+    float: left;
+    font-size: 20px;
+    font-family: sans-serif;
+    color: grey;
 }

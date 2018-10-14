@@ -83,24 +83,30 @@ var productClickHandler = function (event) {
     rightProductText.textContent = allProductImages[randomNumberRight].name;
 
     productCounter++;
+
+    console.log(productCounter + 'CLICKS');
+    counter();
   }
 };
 
 productSelection.addEventListener('click', productClickHandler);
 
 var counter = function () {
-  if (productCounter >= 25) {
+  if (productCounter > 24) {
     productSelection.removeEventListener ('click', productClickHandler);
 
-    var productForm = document.getElementById ('productForm');
-    var productLiEl = document.createElement('li');
-    var liResult = (ProductImage.name + 'was liked' + ProductImage.likes + ' times.');
-    productLiEl.textContent = liResult;
-    productForm.appendChild(productLiEl);
+    var productForm = document.getElementById ('productList');
+    for (var i =0; i < allProductImages.length; i++) {
+      var productLiEl = document.createElement('li');
+      var liResult = (allProductImages[i].name + ' was liked ' + allProductImages[i].likes + ' times.');
+      productLiEl.textContent = liResult;
+      productForm.appendChild(productLiEl);
+    }
+
+
   }
 };
 
-counter();
 
 new ProductImage ('IMG/bag.jpg', 'nerdy luggage');
 new ProductImage ('IMG/banana.jpg', 'banana cutter');
