@@ -5,39 +5,71 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Bus Mall</title>
+    <!-- chart link below -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
+    <!-- font link below -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
+    <!-- CSS links below -->
     <link rel= "reset" href= "reset.css">
     <link rel= "stylesheet" href="style.css">
 </head>
 <body>
     <header>
+            <img id="busphoto" src="busphoto.jpg" alt="" class="busphoto"/>
+            <blockquote id="blockquote">
+                    (206) 425-9371    busmall@industrysolutions.com
+                </blockquote>
         <nav>
             <ul>
                 <li> <a href="#">Home</a></li>
-                <li> <a href="#">Our products</a></li>
+                <li><a href="#">About Us</a></li>
+                <li> <a href="#">Our Products</a></li>
+                <li><a href="#">Our Research</a></li>
+                <li><a href="#">Contact Us</a></li>
             </ul>
         </nav>
+        
     </header>
-    <h1 id="openingBanner"> Welcome To Bus Mall</h1>
+
     <main>
+        <!-- <section id= "selectChoice"> -->
+        <h1 id="openingBanner">Bus Mall</h1>
+        <h4 id="productresearch">Product Research &amp; Development Dept.</h4>
+        <h1 id="building"> Building, Engaging</h1>
+        <h1 id= "pleaseChoose">Please choose from our selection of available products:</h1>
         <section id= "selectChoice">
-            <h1 id= "pleaseChoose">Please choose from our selection of available products</h1>
-                <div> 
-                    <img id="leftProduct" data-index = "0" class = "photoResizing" src="IMG/bag.jpg">
-                    <h2 id="ProductOneText">Nerdy Luggage</h2>
-                </div>
-                <div> 
-                    <img id="middleProduct" data-index = "1" class = "photoResizing" src="IMG/banana.jpg">
-                    <h2 id="ProductTwoText">Banana Cutter</h2>
-                </div>
-                <div> 
-                        <img id="rightProduct" data-index = "2"  class = "photoResizing" src="IMG/bathroom.jpg">
-                        <h2 id="ProductThreeText">Bathroom Reader</h2>
-                    </div>
+            <div> 
+                <img id="leftProduct" data-index = "0" class = "photoResizing" src="IMG/bag.jpg">
+                <h3 id="ProductOneText">Nerdy Luggage</h3>
+            </div>
+            <div> 
+                <img id="middleProduct" data-index = "1" class = "photoResizing" src="IMG/banana.jpg">
+                <h3 id="ProductTwoText">Banana Cutter</h3>
+            </div>
+            <div> 
+                <img id="rightProduct" data-index = "2"  class = "photoResizing" src="IMG/bathroom.jpg">
+                <h3 id="ProductThreeText">Bathroom Reader</h3>
+            </div>
         </section> 
-        <canvas id="productChart"></canvas>
     </main>
-    <ul id="productList"></ul>  
+
+    <ul id="productList"></ul>
+    
+    <h4>Interested in taking more surveys?</h4><h5>contact us for more opportunities by emailing the address found at the top and bottom of the site.</h5> 
+
+    <h2>About Us</h2>
+    <p class="paragraph">We like to make life easier. From advertisers, to content providers, to technology providers, and global operators, we use research to make technology more simple for our clients. Our goal is to let our clients create their products in the easiest environment.</p>
+
+    <h2>Our Products</h2>
+    <p class="paragraph">We specialize in creating and utilizing operating systems, product software, digital services, and cloud computing on various paltforms, including video platforms, ad platforms, wholesale platforms.</p>
+
+    <h2>Our Research</h2>
+    <p>BMI’s mission is to help leaders in the commercial, public, and social technology community develop a deeper understanding of the evolution of the technology industry and to provide fact based data that contributes to decision making on product marketing.</p>
+    
+    <canvas id="productChart" width="300" height="200"></canvas>
+
+    <footer id="contactus">(206) 425-9371<br>BusMall Research Solutions Dept.<br>busmall@industrysolutions.com <br>1719 Pine St, Seattle WA 98108</footer>
+
     <script type="text/javascript" src="./main.js"></script>
 </body>
 </html>
