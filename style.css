@@ -1,54 +1,128 @@
 body{
     width: 960px;
-    background-image: url("busMallBackground.jpg");
+    background-image: url("bus_mallbackground.jpg");
+    background-repeat: no-repeat;
+    background-size: 100%;
     background-position: center;
     opacity: .8;
+    margin: auto;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+#busphoto{
+    height:150px;
+    width: 200px;
+    margin-right: 0px;
+    margin-bottom:0px;
+    /* float:left; */
 
 }
+header{
+height:100px;
+margin-bottom:0px;
+}
+
 nav  li {
-    float: left;
+    float: right;
     list-style-type: none;
 }
+
 nav li a {
     display: block;
     height: 10px;
     padding: 12px 18px 8px 18px;
     vertical-align: middle;
-    color: grey;
-    font-family: 'Cinzel', serif;
-    font-size: 30px;
+    color:rgba(218, 6, 6, 0.815);
+    font-size: 20px;
 }
+
 #openingBanner {
-text-align: center;
-margin-bottom: 30px;
+color: grey;
+margin-top:30px;
+margin-bottom: 0px;
+text-align: left;
 font-size: 50px;
-font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
+}
+#blockquote{
+float: right;
+margin-top: 50px;
+color:darkgray;
+}
+#productresearch{
+    margin-top:0px;
+    margin-bottom:50px;
+}
+
+#building{
+    margin-top: 0px;
+    color: lightgrey;
+    font-size: 70px;
 }
 #pleaseChoose{
-    margin-top: 30px;
+    margin-top: 100px;
+    margin-bottom: 10px;
     text-align: left;
-    font-family: sans-serif;
+    color: rgba(218, 6, 6, 0.699);
+    font-size: 20px;
 }
     
 #leftProduct, #middleProduct, #rightProduct {
+    align-content: center;
     height: 250px;
     width: 200px;
-    float: left; 
+    /* float: center;  */
+    margin-bottom: 0px;
+    margin-top: 0px;
+    /* margin-right:20px; */
+    border-radius: 10%;
 }
 
 div {
     float: left;
-    margin: 40px;
-    border: solid lightgrey 10px;
+    margin-top: 0px;
+    margin-right: 100px;
+    margin-bottom:30px;
+    border: solid rgb(235, 233, 233) 5px;
     background-color: white;
     text-align: center;
     border-radius: 10%;
     opacity: .9;
 }
 
+
 #productList {
     float: left;
     font-size: 20px;
     font-family: sans-serif;
-    color: grey;
+    color: rgb(80, 78, 78);
+}
+
+h4{
+ color:rgb(92, 92, 92);
+ margin-bottom: 0px;
+ margin-top: 0px;
+}
+
+h5{
+    margin-top:0px;
+    margin-bottom:30px;
+    color:gray;
+}
+
+h2{
+    color:rgba(218, 6, 6, 0.815);
+    float: center;
+    margin-right:50px;
+}
+.paragraph{
+    text-align: left;
+    width: 300px;
+    float: left;
+    margin-right: 20px;
+    margin-top: 0px;
+}
+#contactus{
+    margin:auto;
+    text-align: center;
+    color:darkgray;
+    align-content: center;
 }

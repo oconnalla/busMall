@@ -1,7 +1,6 @@
 'use strict';
 
-// global vars
-var ctx = document.getElementById('productChart').getContext('2d');
+// Global variables
 var productOptionLeft = document.getElementById ('leftProduct');
 var productOptionMiddle = document.getElementById ('middleProduct');
 var productOptionRight = document.getElementById ('rightProduct');
@@ -14,6 +13,11 @@ var middleProductArrayIndex = 1;
 var rightProductArrayIndex = 2;
 var productCounter = 0;
 var allProductImages = [];
+// Chart Data Variables
+var ctx = document.getElementById('productChart').getContext('2d');
+var minColorValue = 0;
+var maxColorValue = 90;
+
 
 
 
@@ -85,14 +89,14 @@ var productClickHandler = function (event) {
 
     productCounter++;
 
-    console.log(productCounter + 'CLICKS');
-    counter();
+    stopProductCounter();
+    renderGraph();
   }
 };
 
 productSelection.addEventListener('click', productClickHandler);
 
-var counter = function () {
+var stopProductCounter = function () {
   if (productCounter > 24) {
     productSelection.removeEventListener ('click', productClickHandler);
 
@@ -104,60 +108,89 @@ var counter = function () {
     //   productForm.appendChild(productLiEl);
 
     // }
-    renderGraph();
   }
 };
 
-// ___render Graphs___
-var renderGraph = function (){
-  var productLikes = [];
-  var productNames = [];
-  var graphColors = [];
+// ___render Graph___
 
-  for (var i in allProductImages) {
-    // allProductImages[i].name.push(productNames);
-    // allProductImages[i].likes.push(productLikes);
+var randomizedColor = function(){
+  var r = 230;
+  var g = Math.floor(Math.random() * (maxColorValue - minColorValue));
+  var b = Math.floor(Math.random() * (maxColorValue - minColorValue));
+  var a = .9;
+
+  // var colorValue ='rgb(' + r + ', ' + g + ', ' + b + ', ' + a + ')';
+  var colorValue =`rgba(${r}, ${g}, ${b}, ${a})`;
+  return colorValue;
+};
+
+var renderGraph = function(){
+
+  var productNames = [];
+  var productLikes = [];
+  var colors = [];
+
+
+  var rgbColorSelector = function(){
+    for(var i = 0; i < 20; i++)
+      colors.push(randomizedColor());
+  };
+
+  rgbColorSelector();
+
+  for (var i in allProductImages){
     productNames.push(allProductImages[i].name);
     productLikes.push(allProductImages[i].likes);
-    graphColors.push('rgba(255,99,132,1');
-    console.log(productNames, productLikes);
+    colors.push();
   }
 
-
-  var productData = {
+  var chartData = {
     labels: productNames,
     datasets: [{
-      label: 'Number of likes',
+      label: 'Busmall Preferred Products',
       data: productLikes,
-      backgroundColor: graphColors,
-      borderColor: graphColors,
-      borderwidth: 1,
+      backgroundColor: colors,
+      borderColor: colors,
+      borderWidth: 1
     }]
   };
 
-  var graphOptions = {
+  var chartOptions = {
     scales: {
       yAxes: [{
         ticks: {
-          beginAtZero: true,
+          beginAtZero:true,
+          max:8,
+          stepSize: 2
+        }
+      }],
+      xAxes: [{
+        ticks: {
+          autoSkip: false
         }
       }]
     },
     animation: {
-      duration: 1000,
-      easing: 'easeinCirc',
+      duration: 2000,
     },
     responsive: true,
   };
 
-  var productBar = {
-    type: 'horizontalBar',
-    data: productData,
-    options: graphOptions,
+  var productChart = {
+    type: 'bar',
+    data: chartData,
+    options: chartOptions
   };
-  var productChart = new Chart(ctx, productBar);
+
+  //render a new chart
+  var myChart = new Chart(ctx , productChart);
 };
 
+
+// var storeLocalStorage = function () {
+//   localStorage.setItem ('colors',numbersforcolors);
+
+// };
 
 new ProductImage ('IMG/bag.jpg', 'nerdy luggage');
 new ProductImage ('IMG/banana.jpg', 'banana cutter');
