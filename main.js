@@ -127,8 +127,9 @@ var randomizedColor = function(){
 var renderGraph = function(){
 
   var productNames = [];
-  var productLikes = [];
+  // var productLikes = [];
   var colors = [];
+  var productLikes = JSON.parse(localStorage.getItem('likes'));
 
 
   var rgbColorSelector = function(){
@@ -187,10 +188,15 @@ var renderGraph = function(){
 };
 
 
-// var storeLocalStorage = function () {
-//   localStorage.setItem ('colors',numbersforcolors);
+var storeLocalStorage = function () {
+  localStorage.setItem('likes', JSON.stringify(productLikes));
+};
+storeLocalStorage();
+// to be removed later 
+// var productLikes = JSON.parse(localStorage.getItem('likes'));
 
-// };
+if(!localStorage.getItem('likes')){
+  allProductImages[]
 
 new ProductImage ('IMG/bag.jpg', 'nerdy luggage');
 new ProductImage ('IMG/banana.jpg', 'banana cutter');
@@ -212,3 +218,6 @@ new ProductImage ('IMG/unicorn.jpg', 'unicorn meat');
 new ProductImage ('IMG/usb.gif', 'tentacle usb');
 new ProductImage ('IMG/water-can.jpg', 'self-watering can');
 new ProductImage ('IMG/wine-glass.jpg', 'wine glass');
+} else {allProductImages = JSON.parse(localStorage.getItem('likes'));
+}
+if(localStorage.getItem(''))
