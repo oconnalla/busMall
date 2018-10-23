@@ -18,9 +18,6 @@ var ctx = document.getElementById('productChart').getContext('2d');
 var minColorValue = 0;
 var maxColorValue = 90;
 
-
-
-
 // _____Product Constructor Function______
 var ProductImage = function (src, name) {
   this.src = src;
@@ -29,6 +26,44 @@ var ProductImage = function (src, name) {
   this.appeared = 0;
   allProductImages.push(this);
 };
+
+// _____Storage Function______
+var storeLocalStorage = function () {
+  if(localStorage.getItem('allProductImages')) {
+    allProductImages =JSON.parse(localStorage.getItem('allProductImages'));
+  } else {
+    new ProductImage ('IMG/bag.jpg', 'nerdy luggage');
+    new ProductImage ('IMG/banana.jpg', 'banana cutter');
+    new ProductImage ('IMG/bathroom.jpg', 'bathroom reader');
+    new ProductImage ('IMG/boots.jpg', 'yellow rain boots');
+    new ProductImage ('IMG/breakfast.jpg', 'breakfast maker');
+    new ProductImage ('IMG/bubblegum.jpg', 'meatball bubblegum');
+    new ProductImage ('IMG/chair.jpg', 'red chair');
+    new ProductImage ('IMG/cthulhu.jpg', 'toy cthulhu');
+    new ProductImage ('IMG/dog-duck.jpg', 'duck dog mask');
+    new ProductImage ('IMG/dragon.jpg', 'dragon meat');
+    new ProductImage ('IMG/pen.jpg', 'pen silverware');
+    new ProductImage ('IMG/pet-sweep.jpg', 'pet mop');
+    new ProductImage ('IMG/scissors.jpg', 'pizza scissors');
+    new ProductImage ('IMG/shark.jpg', 'shark sleeping bag');
+    new ProductImage ('IMG/sweep.png', 'baby mop');
+    new ProductImage ('IMG/tauntaun.jpg', 'tauntaun sleeping bag');
+    new ProductImage ('IMG/unicorn.jpg', 'unicorn meat');
+    new ProductImage ('IMG/usb.gif', 'tentacle usb');
+    new ProductImage ('IMG/water-can.jpg', 'self-watering can');
+    new ProductImage ('IMG/wine-glass.jpg', 'wine glass');
+  }
+};
+
+storeLocalStorage();
+// _____setting Storage Function______
+
+var allProductImagesStorage = function () {
+  localStorage.setItem('allProductImages', JSON.stringify(allProductImages));
+};
+
+
+
 
 //____prototype____
 ProductImage.prototype.renderProduct = function () {
@@ -99,7 +134,7 @@ productSelection.addEventListener('click', productClickHandler);
 var stopProductCounter = function () {
   if (productCounter > 24) {
     productSelection.removeEventListener ('click', productClickHandler);
-
+    allProductImagesStorage();
     // var productForm = document.getElementById ('productList');
     // for (var i =0; i < allProductImages.length; i++) {
     //   var productLiEl = document.createElement('li');
@@ -119,7 +154,6 @@ var randomizedColor = function(){
   var b = Math.floor(Math.random() * (maxColorValue - minColorValue));
   var a = .9;
 
-  // var colorValue ='rgb(' + r + ', ' + g + ', ' + b + ', ' + a + ')';
   var colorValue =`rgba(${r}, ${g}, ${b}, ${a})`;
   return colorValue;
 };
@@ -127,9 +161,10 @@ var randomizedColor = function(){
 var renderGraph = function(){
 
   var productNames = [];
-  // var productLikes = [];
+  var productLikes = [];
   var colors = [];
-  var productLikes = JSON.parse(localStorage.getItem('likes'));
+  // var productLikes = JSON.parse(localStorage.getItem('likes'));
+  console.log(productLikes);
 
 
   var rgbColorSelector = function(){
@@ -142,6 +177,7 @@ var renderGraph = function(){
   for (var i in allProductImages){
     productNames.push(allProductImages[i].name);
     productLikes.push(allProductImages[i].likes);
+    console.log(productLikes);
     colors.push();
   }
 
@@ -186,38 +222,3 @@ var renderGraph = function(){
   //render a new chart
   var myChart = new Chart(ctx , productChart);
 };
-
-
-var storeLocalStorage = function () {
-  localStorage.setItem('likes', JSON.stringify(productLikes));
-};
-storeLocalStorage();
-// to be removed later 
-// var productLikes = JSON.parse(localStorage.getItem('likes'));
-
-if(!localStorage.getItem('likes')){
-  allProductImages[]
-
-new ProductImage ('IMG/bag.jpg', 'nerdy luggage');
-new ProductImage ('IMG/banana.jpg', 'banana cutter');
-new ProductImage ('IMG/bathroom.jpg', 'bathroom reader');
-new ProductImage ('IMG/boots.jpg', 'yellow rain boots');
-new ProductImage ('IMG/breakfast.jpg', 'breakfast maker');
-new ProductImage ('IMG/bubblegum.jpg', 'meatball bubblegum');
-new ProductImage ('IMG/chair.jpg', 'red chair');
-new ProductImage ('IMG/cthulhu.jpg', 'toy cthulhu');
-new ProductImage ('IMG/dog-duck.jpg', 'duck dog mask');
-new ProductImage ('IMG/dragon.jpg', 'dragon meat');
-new ProductImage ('IMG/pen.jpg', 'pen silverware');
-new ProductImage ('IMG/pet-sweep.jpg', 'pet mop');
-new ProductImage ('IMG/scissors.jpg', 'pizza scissors');
-new ProductImage ('IMG/shark.jpg', 'shark sleeping bag');
-new ProductImage ('IMG/sweep.png', 'baby mop');
-new ProductImage ('IMG/tauntaun.jpg', 'tauntaun sleeping bag');
-new ProductImage ('IMG/unicorn.jpg', 'unicorn meat');
-new ProductImage ('IMG/usb.gif', 'tentacle usb');
-new ProductImage ('IMG/water-can.jpg', 'self-watering can');
-new ProductImage ('IMG/wine-glass.jpg', 'wine glass');
-} else {allProductImages = JSON.parse(localStorage.getItem('likes'));
-}
-if(localStorage.getItem(''))
